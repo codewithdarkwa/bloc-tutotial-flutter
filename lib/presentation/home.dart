@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   String username = _usernameController.text.trim();
                   if (username.isNotEmpty) {
-                    BlocProvider.of<UserBloc>(context).add(FetchUserEvent(username));
+                   context.read<UserBloc>().add(FetchUserEvent(username));
                   }
                 },
                 child: const Text('Fetch User'),
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     return Text('Error: ${state.errorMessage}');
                   }
                   else if(state is UserInitial){
-                    return const Text('Enter username to get the details');
+                    return const Text('Enter username to get details');
                   }
                   else {
                     return const Text('No user data available');
