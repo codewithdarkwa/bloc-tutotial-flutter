@@ -64,7 +64,11 @@ class _HomePageState extends State<HomePage> {
                     );
                   } else if (state is UserError) {
                     return Text('Error: ${state.errorMessage}');
-                  } else {
+                  }
+                  else if(state is UserInitial){
+                    return const Text('Enter username to get the details');
+                  }
+                  else {
                     return const Text('No user data available');
                   }
                 },
